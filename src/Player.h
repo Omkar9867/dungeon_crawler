@@ -2,8 +2,7 @@
 
 class Player{
     public:
-        Player(int x, int y);
-        void move(int dx, int dy);
+        Player(int startX, int startY);
         int getX() const;
         int getY() const;
 

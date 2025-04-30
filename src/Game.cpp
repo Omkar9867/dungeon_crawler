@@ -1,9 +1,16 @@
 #include "Game.h"
 #include <iostream>
 #include <conio.h>
+#include "Player.h"
+#include "Map.h"
 using namespace std;
 
-Game::Game() : m_player(5, 5), m_running(true) {}
+Game::Game() : m_running(true), m_player(new Player(5, 5)), m_map(new Map()) {}
+
+// Game::~Game() {
+//     delete m_player; // Clean up dynamically allocated memory
+//     delete m_map;
+// }
 
 void Game::run() {
     while(m_running){
@@ -29,8 +36,8 @@ void Game::update(){
 
 void Game::render(){
     //Draw the map
-    m_map.draw(m_player);
     system("cls"); //Clear the console
+    m_map->draw(m_player);
     cout << "Basic Game Framework" << endl;
     cout << "Press 'Q' to quit." << endl;
 }
